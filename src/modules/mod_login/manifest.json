@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "name": "mod_login",
+  "type": "module",
+  "vendor": "klucon",
+  "extension_id": "klucon/mod_login",
+  "version": "0.1.0",
+  "display_name": "Login modul",
+  "display_name_key": "extensions.name.mod_login",
+  "description": "Frontend widget pro přihlášení a odhlášení uživatele. Přihlášenému uživateli zobrazí jméno a odkaz na profil, nepřihlášenému formulář nebo odkaz na přihlašovací stránku.",
+  "license": "MIT",
+  "author": {
+    "name": "KLUCON",
+    "url": "https://klucon.cz"
+  },
+  "links": {
+    "homepage": "https://marketplace.klucon.cz",
+    "repository": "https://github.com/klucon/mod_login"
+  },
+  "compatibility": {
+    "core_min": "0.2.0",
+    "core_max": null,
+    "python": ">=3.12",
+    "database": [
+      "mysql",
+      "postgresql"
+    ]
+  },
+  "package": {
+    "python_package": "mod_login",
+    "entrypoint": "src.modules.mod_login",
+    "setup_function": "setup",
+    "module_module": "module",
+    "render_function": "render"
+  },
+  "permissions": [],
+  "i18n": {
+    "domain": "mod_login",
+    "locales_path": "i18n",
+    "required_locales": [
+      "cs_CZ",
+      "en_GB"
+    ]
+  },
+  "migrations": {
+    "enabled": false,
+    "path": "migrations"
+  },
+  "security": {
+    "requires_signature": true,
+    "capabilities": [
+      "module.render"
+    ]
+  },
+  "settings_schema": [
+    {
+      "key": "style",
+      "type": "select",
+      "label": "Styl widgetu",
+      "options": [
+        {"value": "inline", "label": "Inline (přihlašovací formulář přímo)"},
+        {"value": "link", "label": "Odkaz na přihlašovací stránku"}
+      ],
+      "default": "inline"
+    },
+    {
+      "key": "show_username",
+      "type": "boolean",
+      "label": "Zobrazit uživatelské jméno",
+      "default": true
+    },
+    {
+      "key": "show_profile_link",
+      "type": "boolean",
+      "label": "Zobrazit odkaz na profil",
+      "default": true
+    },
+    {
+      "key": "css_class",
+      "type": "text",
+      "label": "CSS třída wrapperu",
+      "help": "Volitelná CSS třída na obalovém elementu."
+    }
+  ],
+  "marketplace": {
+    "category": "users",
+    "tags": [
+      "login",
+      "user",
+      "auth",
+      "module"
+    ],
+    "featured": false
+  },
+  "changelog": "První vydání: inline formulář nebo odkaz, přihlášený uživatel vidí jméno, profil a odhlášení."
+}
