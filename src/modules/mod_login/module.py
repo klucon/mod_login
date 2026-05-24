@@ -3,8 +3,6 @@ from __future__ import annotations
 import json
 from html import escape
 
-from sqlalchemy import text
-
 
 def _settings(settings: str) -> dict[str, object]:
     raw = (settings or "").strip()
@@ -66,18 +64,6 @@ async def _com_user_urls(db: object, locale: str) -> tuple[str, str, str]:
         },
     }
     parts = _SLUGS.get(locale) or _SLUGS["cs_CZ"]
-
-    if db is not None:
-        try:
-            row = (
-                await db.execute(
-                    text(
-                        "SELECT value FROM system_settings WHERE id = 1 LIMIT 1"
-                    )
-                )
-            ).mappings().first()
-        except Exception:
-            pass
 
     slug = parts["slug"]
     return (
@@ -180,11 +166,13 @@ def _render_inline_form(
         f"{csrf_input}{next_input}"
         f'<div class="mod-login__field">'
         f'<label class="mod-login__label">{labels["username_label"]}'
-        f'<input class="mod-login__input" type="text" name="username" autocomplete="username" required>'
+        f'<input class="mod-login__input" type="text" name="username" '
+        f'autocomplete="username" required>'
         f"</label></div>"
         f'<div class="mod-login__field">'
         f'<label class="mod-login__label">{labels["password_label"]}'
-        f'<input class="mod-login__input" type="password" name="password" autocomplete="current-password" required>'
+        f'<input class="mod-login__input" type="password" name="password" '
+        f'autocomplete="current-password" required>'
         f"</label></div>"
         f'<button class="mod-login__submit" type="submit">{labels["submit"]}</button>'
         f"</form>"

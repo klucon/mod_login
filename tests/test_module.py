@@ -2,9 +2,6 @@ from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
-from unittest.mock import AsyncMock
-
-import pytest
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "src/modules/mod_login/module.py"
 SPEC = importlib.util.spec_from_file_location("mod_login_module", MODULE_PATH)
