@@ -4,7 +4,7 @@
   "type": "module",
   "vendor": "klucon",
   "extension_id": "klucon/mod_login",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "display_name": "Login modul",
   "display_name_key": "extensions.name.mod_login",
   "description": "Frontend widget pro přihlášení a odhlášení uživatele. Přihlášenému uživateli zobrazí jméno a odkaz na profil, nepřihlášenému formulář nebo odkaz na přihlašovací stránku.",
@@ -58,8 +58,14 @@
       "type": "select",
       "label": "Styl widgetu",
       "options": [
-        {"value": "inline", "label": "Inline (přihlašovací formulář přímo)"},
-        {"value": "link", "label": "Odkaz na přihlašovací stránku"}
+        {
+          "value": "inline",
+          "label": "Inline (přihlašovací formulář přímo)"
+        },
+        {
+          "value": "link",
+          "label": "Odkaz na přihlašovací stránku"
+        }
       ],
       "default": "inline"
     },
